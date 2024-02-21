@@ -1,0 +1,4 @@
+-- require("smartcolumn").setup({
+-- 	disabled_filetypes = { "help", "text", "markdown" },
+-- 	colorcolumn = { "80 " }
+-- })
