@@ -51,25 +51,46 @@ end
 return {
 	-- mathzone snippets
 	s(
-		{ trig = "([^%a])ff", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "ff", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[<>\frac{<>}{<>}]],
+			[[\frac{<>}{<>}]],
 			{
-				f(function(_, snip) return snip.captures[1] end),
 				i(1), i(2) }
 		),
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "([^%a])tt", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "tt", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[<>\mathbf{<>}]],
+			[[\mathbf{<>}]],
 			{
-				f(function(_, snip) return snip.captures[1] end),
 				i(1) }
 		),
 		{ condition = tex_utils.in_mathzone }
 	),
+	s(
+		{ trig = "sum", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		fmta(
+			[[\sum_{<>}^{<>}]],
+			{
+				i(1),
+				i(2)
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
+	s(
+		{ trig = "dint", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		fmta(
+			[[\int_{<>}^{<>}]],
+			{
+				i(1),
+				i(2)
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
+
 	s(
 		{ trig = "([%a%)%]%}])%.", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
