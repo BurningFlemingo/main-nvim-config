@@ -60,11 +60,19 @@ return {
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "tt", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "bf", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[\mathbf{<>}]],
 			{
 				i(1) }
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
+	s(
+		{ trig = "ss", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		fmta(
+			[[\,]],
+			{}
 		),
 		{ condition = tex_utils.in_mathzone }
 	),
@@ -90,6 +98,35 @@ return {
 		),
 		{ condition = tex_utils.in_mathzone }
 	),
+	s(
+		{ trig = "ee", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		fmta(
+			[[\qty(<>)]],
+			{
+				i(1)
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
+	s(
+		{ trig = "ii", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{
+			t("\\qty["),
+			i(1),
+			t("]")
+		},
+		{ condition = tex_utils.in_mathzone }
+	),
+	s(
+		{ trig = "ee", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		fmta(
+			[[\qty{<>}]],
+			{
+				i(1)
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
 
 	s(
 		{ trig = "([%a%)%]%}])%.", regTrig = true, snippetType = "autosnippet", wordTrig = false },
@@ -104,8 +141,9 @@ return {
 	),
 
 	-- text snippets
+	-- math (times two) but small :pensive:
 	s(
-		{ trig = "([^%a])mm", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "([^%w])mm", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[<>\(<>\)]],
 			{
@@ -113,8 +151,9 @@ return {
 				i(1) }
 		)
 	),
+	-- math (times two) BUT LOUD
 	s(
-		{ trig = "([^%a])MM", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "([^%w])MM", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[<>\[<>\] ]],
 			{
@@ -122,25 +161,27 @@ return {
 				i(1) }
 		)
 	),
+	-- new equation
 	s(
-		{ trig = "([^%a])ne", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "([^%w])NE", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[<>\begin{equation}<>\end{equation}]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
-				i(0)
+				i(1)
 			}
 		)
 	),
 
+	-- environment (times two)
 	s(
-		{ trig = "\\beg", snippetType = "autosnippet" },
+		{ trig = "\\beg", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[
 			\begin{<>}
 			<>
 			\end{<>}
-		]],
+			]],
 			{
 				i(1),
 				i(2),

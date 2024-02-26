@@ -58,6 +58,9 @@ return {
 	-- "m4xshen/smartcolumn.nvim",
 	{ 'glepnir/nerdicons.nvim', cmd = 'NerdIcons', config = function() require('nerdicons').setup({}) end },
 	'lervag/vimtex',
+	{
+		'max397574/better-escape.nvim',
+	},
 
 	-- colorschemes
 	{
