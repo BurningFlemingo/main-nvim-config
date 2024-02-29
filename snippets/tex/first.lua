@@ -109,7 +109,7 @@ return {
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "ii", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "ii", snippetType = "autosnippet"},
 		{
 			t("\\qty["),
 			i(1),
@@ -123,6 +123,17 @@ return {
 			[[\qty{<>}]],
 			{
 				i(1)
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
+	s(
+		{ trig = "li", snippetType = "autosnippet"},
+		fmta(
+			[[\lim_{<>\to<>}]],
+			{
+				i(1),
+				i(2),
 			}
 		),
 		{ condition = tex_utils.in_mathzone }

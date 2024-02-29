@@ -5,6 +5,8 @@ lsp.preset("recommended")
 
 -- local signs = { Error = " ", Warning = " ", Hint = " ", Information = "" }
 
+vim.keymap.set("n", "I", vim.lsp.buf.hover, opts)
+
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
