@@ -145,7 +145,9 @@ return {
 	s(
 		{ trig = "([^%w])mm", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[<>\(<>\)]],
+			[[<>\(
+			<>
+	\)]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
 				i(1) }
@@ -155,7 +157,9 @@ return {
 	s(
 		{ trig = "([^%w])MM", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[<>\[<>\] ]],
+			[[<>\[
+			<>\]
+	]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
 				i(1) }
@@ -165,7 +169,21 @@ return {
 	s(
 		{ trig = "([^%w])NE", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[<>\begin{equation}<>\end{equation}]],
+			[[<>\begin{equation}
+			<>
+	\end{equation}]],
+			{
+				f(function(_, snip) return snip.captures[1] end),
+				i(1)
+			}
+		)
+	),
+	s(
+		{ trig = "([^%w])ali", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		fmta(
+			[[<>\begin{align*}
+			<>
+	\end{align}]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
 				i(1)
@@ -177,10 +195,9 @@ return {
 	s(
 		{ trig = "\\beg", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[
-			\begin{<>}
+			[[\begin{<>}
 			<>
-			\end{<>}
+\end{<>}
 			]],
 			{
 				i(1),
