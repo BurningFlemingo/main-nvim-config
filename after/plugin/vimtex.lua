@@ -9,7 +9,7 @@ vim.cmd('filetype plugin indent on')
 
 -- Viewer options: One may configure the viewer either by specifying a built-in
 -- viewer method:
-vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_method = 'general'
 
 -- Or with a generic interface:
 -- vim.g.vimtex_view_general_viewer = 'okular'

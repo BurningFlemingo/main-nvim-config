@@ -109,7 +109,7 @@ return {
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "ii", snippetType = "autosnippet"},
+		{ trig = "ii", snippetType = "autosnippet" },
 		{
 			t("\\qty["),
 			i(1),
@@ -128,7 +128,7 @@ return {
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "li", snippetType = "autosnippet"},
+		{ trig = "li", snippetType = "autosnippet" },
 		fmta(
 			[[\lim_{<>\to<>}]],
 			{
@@ -138,6 +138,19 @@ return {
 		),
 		{ condition = tex_utils.in_mathzone }
 	),
+	s(
+		{ trig = "eva", snippetType = "autosnippet" },
+		fmta(
+			[[\eval{<>}{<>}{<>}]],
+			{
+				i(1),
+				i(2),
+				i(3),
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
+
 
 	s(
 		{ trig = "([%a%)%]%}])%.", regTrig = true, snippetType = "autosnippet", wordTrig = false },
@@ -156,9 +169,7 @@ return {
 	s(
 		{ trig = "([^%w])mm", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
-			[[<>\(
-			<>
-	\)]],
+			[[<>\(<>\)]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
 				i(1) }
@@ -169,8 +180,8 @@ return {
 		{ trig = "([^%w])MM", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[<>\[
-			<>\]
-	]],
+<>
+	\] ]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
 				i(1) }
@@ -181,7 +192,7 @@ return {
 		{ trig = "([^%w])NE", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[<>\begin{equation}
-			<>
+<>
 	\end{equation}]],
 			{
 				f(function(_, snip) return snip.captures[1] end),
@@ -190,13 +201,12 @@ return {
 		)
 	),
 	s(
-		{ trig = "([^%w])ali", regTrig = true, snippetType = "autosnippet", wordTrig = false },
+		{ trig = "\\ali", snippetType = "autosnippet" },
 		fmta(
-			[[<>\begin{align*}
-			<>
-	\end{align}]],
+			[[\begin{align*}
+<>
+\end{align*}]],
 			{
-				f(function(_, snip) return snip.captures[1] end),
 				i(1)
 			}
 		)
@@ -207,7 +217,7 @@ return {
 		{ trig = "\\beg", regTrig = true, snippetType = "autosnippet", wordTrig = false },
 		fmta(
 			[[\begin{<>}
-			<>
+	<>
 \end{<>}
 			]],
 			{
