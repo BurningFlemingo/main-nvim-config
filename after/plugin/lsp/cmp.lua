@@ -96,5 +96,7 @@ cmp.setup({
 	},
 })
 
+vim.keymap.set("n", "I", vim.lsp.buf.hover, { buffer = bufnr, noremap = true, silent = true })
+
 -- Enable formatting on save
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
