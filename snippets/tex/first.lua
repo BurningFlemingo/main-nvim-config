@@ -32,9 +32,6 @@ end
 tex_utils.in_itemize = function() -- itemize environment detection
 	return tex_utils.in_env('itemize')
 end
-tex_utils.in_tikz = function() -- TikZ picture environment detection
-	return tex_utils.in_env('tikzpicture')
-end
 
 -- f(function(_, snip) return snip.captures[1] end)
 -- used to capture the first (because of the 1) character in a snippet trigger
@@ -118,16 +115,6 @@ return {
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "ee", regTrig = true, snippetType = "autosnippet", wordTrig = false },
-		fmta(
-			[[\qty{<>}]],
-			{
-				i(1)
-			}
-		),
-		{ condition = tex_utils.in_mathzone }
-	),
-	s(
 		{ trig = "li", snippetType = "autosnippet" },
 		fmta(
 			[[\lim_{<>\to<>}]],
@@ -139,18 +126,25 @@ return {
 		{ condition = tex_utils.in_mathzone }
 	),
 	s(
-		{ trig = "eva", snippetType = "autosnippet" },
+		{ trig = "yy", snippetType = "autosnippet" },
 		fmta(
-			[[\eval{<>}{<>}{<>}]],
+			[[\eval{<>}{<>}]],
 			{
 				i(1),
 				i(2),
-				i(3),
 			}
 		),
 		{ condition = tex_utils.in_mathzone }
 	),
-
+	s(
+		{ trig = ";s", snippetType = "autosnippet" },
+		fmta(
+			[[\\[0.5em] ]],
+			{
+			}
+		),
+		{ condition = tex_utils.in_mathzone }
+	),
 
 	s(
 		{ trig = "([%a%)%]%}])%.", regTrig = true, snippetType = "autosnippet", wordTrig = false },

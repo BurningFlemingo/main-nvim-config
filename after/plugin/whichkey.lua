@@ -84,10 +84,10 @@ local mappings = {
 	["q"] = { "<cmd>wqall!<CR>", "Quit" },                     -- Quit Neovim after saving the file
 	-- ["t"] = { "<cmd>terminal<CR>", "terminal" },
 
-	["c"] = { "<cmd>!nvimHelperScripts\\build0.bat<CR>", "call build0.bat" },
-	["C"] = { "<cmd>!nvimHelperScripts\\build1.bat<CR>", "call build1.bat" },
-	["r"] = { "<cmd>!nvimHelperScripts\\run.bat<cr>", "call run.bat and return" },
-	["R"] = { "<cmd>!nvimHelperScripts\\run.bat<cr>", "call run.bat" },
+	["c"] = { "<cmd>!python scripts\\helpers\\build_internal.py<CR>", "build internal" },
+	["C"] = { "<cmd>!python scripts\\helpers\\build_debug.py<CR>", "build debug" },
+	["r"] = { "<cmd>!python scripts\\helpers\\run_internal.py<cr>", "run internal" },
+	["R"] = { "<cmd>!python scripts\\helpers\\run_debug.py<cr>", "run debug" },
 	["n"] = { "<cmd>lua vim.lsp.buf.format()<cr>", "neaten, or format" },
 	["y"] = { "yank system clipboard" },
 	["d"] = { "delete to void register" },
