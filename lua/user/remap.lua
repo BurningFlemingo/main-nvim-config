@@ -13,6 +13,7 @@ map("t", ",,", "<c-\\><c-n>", notremapable)
 
 map("t", "<esc>", "<c-\\><c-n>", notremapable)
 
+
 map({ "n", "v", "o", "t" }, "L", "$", notremapable)
 map({ "n", "v", "o", "t" }, "H", "^", notremapable)
 map({ "n", "v", "o", "t" }, "K", "<c-u>zz", notremapable)

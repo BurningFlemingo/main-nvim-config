@@ -98,6 +98,8 @@ cmp.setup({
 
 vim.keymap.set("n", "I", vim.lsp.buf.hover, { buffer = bufnr, noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "o", "t" }, "K", "<c-u>zz", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o", "t" }, "<c-v>", "<c-v>", { noremap = true, silent = true })
 
 -- Enable formatting on save
+
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
